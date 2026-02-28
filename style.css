@@ -21,8 +21,10 @@ body{
 #saveBtn{
     background-color:lightgreen;
     color: white;
+    justify-self: center;
 }
 #loadBtn{
 background-color:lightskyblue;
     color: white;
+    justify-self: center;
 }
