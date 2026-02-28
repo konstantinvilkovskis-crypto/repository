@@ -1,16 +1,28 @@
-button{
+#clickBtn{
    background-color: black;
      justify-self: center;
-  width: auto;
+    width: auto;
 }
 body{
     background-color: lightpink;
 }
-h1{
+h1, h2{
     font-family: 'Franklin Gothic Medium' ;
     color: azure;
     text-align: center;
 }
+ p{
+    font-family: 'Franklin Gothic Medium' ;
+    color: azure;
+}
 body{
     display: grid;
+}
+#saveBtn{
+    background-color:lightgreen;
+    color: white;
+}
+#loadBtn{
+background-color:lightskyblue;
+    color: white;
 }
