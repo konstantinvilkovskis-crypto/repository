@@ -2,15 +2,19 @@ let clickButton = document.querySelector("button")
 let clicks = 0
 let level = 0
 let pointsTillUpgrade = 100
+let clickPower = 1
+let clickPriceInlet = 10
 
 let clicksDisplay = document.querySelector(".points")
 let levelDisplay = document.querySelector("#level")
+let upgradeBtn = document.querySelector('#buyUpgrade')
+let clickPrice = document.querySelector('#clickPrice')
 
 let saveButton = document.querySelector('#saveBtn')
 let loadBtn = document.querySelector('#loadBtn')
 
 clickButton.addEventListener('click', function () {
-    clicks++
+    clicks = clicks + clickPower
     clicksDisplay.textContent = clicks
     console.log(pointsTillUpgrade)
 
@@ -22,14 +26,27 @@ clickButton.addEventListener('click', function () {
     }
 })
 
+upgradeBtn.addEventListener('click',function(){
+    clicks = clicks - clickPriceInlet;
+    clicksDisplay.textContent = clicks
+    clickPower = clickPower + 1
+    clickPriceInlet = clickPriceInlet*2
+    clickPrice.textContent = clickPriceInlet
+})
+
 saveButton.addEventListener('click', function () {
     console.log("Saving clicks:", clicks);
     localStorage.setItem("points", clicks)
+    localStorage.setItem("level", level)
+    localStorage.setItem("pointsTillUpgrade", pointsTillUpgrade)
 })
 
 loadBtn.addEventListener('click', function () {
     clicks = parseInt(localStorage.getItem("points")) || 0
+    level = parseInt(localStorage.getItem("level")) || 0
+    pointsTillUpgrade = parseInt(localStorage.getItem("pointsTillUpgrade")) || 0
     clicksDisplay.textContent = clicks
+    levelDisplay.textContent = level
     console.log("Loaded clicks:", clicks)
 })
 

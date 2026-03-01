@@ -28,3 +28,6 @@ background-color:lightskyblue;
     color: white;
     justify-self: center;
 }
+#buyUpgrade{
+    justify-self: right;
+}
