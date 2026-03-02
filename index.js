@@ -26,14 +26,18 @@ clickButton.addEventListener('click', function () {
     }
 })
 
-upgradeBtn.addEventListener('click',function(){
-    clicks = clicks - clickPriceInlet;
-    clicksDisplay.textContent = clicks
-    clickPower = clickPower + 1
-    clickPriceInlet = clickPriceInlet*2
-    clickPrice.textContent = clickPriceInlet
-     
-})
+upgradeBtn.addEventListener('click', function() {
+    if (clicks >= clickPriceInlet) {  // ✅ используем clicks
+        clicks = clicks - clickPriceInlet;
+        clicksDisplay.textContent = clicks;
+
+        clickPower = clickPower + 1;
+        clickPriceInlet = clickPriceInlet * 2;
+        clickPrice.textContent = clickPriceInlet;
+    } else {
+        alert("Not enough clicks!");
+    }
+});
 
 saveButton.addEventListener('click', function () {
     console.log("Saving clicks:", clicks);
