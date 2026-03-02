@@ -26,11 +26,11 @@ clickButton.addEventListener('click', function () {
 
 upgradeBtn.addEventListener('click', function() {
     if (clicks >= clickPriceInlet) {
-        clicks -= clickPriceInlet
+        clicks = clicks - clickPriceInlet
         clicksDisplay.textContent = clicks
 
-        clickPower++
-        clickPriceInlet *= 2
+        clickPower = clickPower + 1
+        clickPriceInlet = clickPriceInlet * 2
         clickPrice.textContent = clickPriceInlet
     } else {
         alert("Not enough clicks!")
