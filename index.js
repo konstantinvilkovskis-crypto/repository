@@ -14,6 +14,50 @@ let saveButton = document.querySelector('#saveBtn')
 let loadBtn = document.querySelector('#loadBtn')
 
 clickButton.addEventListener('click', function () {
+    clicks += clickPower
+    clicksDisplay.textContent = clicks
+
+    if (clicks > pointsTillUpgrade) {
+        level++
+        levelDisplay.textContent = level
+        pointsTillUpgrade += 100
+    }
+})
+
+upgradeBtn.addEventListener('click', function() {
+    if (clicks >= clickPriceInlet) {
+        clicks -= clickPriceInlet
+        clicksDisplay.textContent = clicks
+
+        clickPower++
+        clickPriceInlet *= 2
+        clickPrice.textContent = clickPriceInlet
+    } else {
+        alert("Not enough clicks!")
+    }
+})
+
+saveButton.addEventListener('click', function () {
+    localStorage.setItem("points", clicks)
+    localStorage.setItem("level", level)
+    localStorage.setItem("pointsTillUpgrade", pointsTillUpgrade)
+    localStorage.setItem("clickPower", clickPower)
+    localStorage.setItem("clickPriceInlet", clickPriceInlet)
+})
+
+loadBtn.addEventListener('click', function () {
+    clicks = parseInt(localStorage.getItem("points")) || 0
+    level = parseInt(localStorage.getItem("level")) || 0
+    pointsTillUpgrade = parseInt(localStorage.getItem("pointsTillUpgrade")) || 100
+    clickPower = parseInt(localStorage.getItem("clickPower")) || 1
+    clickPriceInlet = parseInt(localStorage.getItem("clickPriceInlet")) || 10
+
+    clicksDisplay.textContent = clicks
+    levelDisplay.textContent = level
+    clickPrice.textContent = clickPriceInlet
+})('#loadBtn')
+
+clickButton.addEventListener('click', function () {
     clicks = clicks + clickPower
     clicksDisplay.textContent = clicks
     console.log(pointsTillUpgrade)
