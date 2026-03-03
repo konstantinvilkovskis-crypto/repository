@@ -3,7 +3,7 @@ let clicks = 0
 let level = 0
 let pointsTillUpgrade = 100
 let clickPower = 1
-let clickPriceInlet = 10
+let clickPriceInlet = 60
 
 let clicksDisplay = document.querySelector(".points")
 let levelDisplay = document.querySelector("#level")
