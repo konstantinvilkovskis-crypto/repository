@@ -98,7 +98,9 @@ loadBtn.addEventListener('click', function () {
     levelDisplay.textContent = level
     console.log("Loaded clicks:", clicks)
 })
-
+document.getElementById("donateBtn").addEventListener("click", function(){
+    window.open("https://ko-fi.com/konstantinvilkovskis")
+})
    
    
 
